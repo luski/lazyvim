@@ -4,3 +4,5 @@
 --
 vim.opt.mouse = ""
 vim.wo.foldmethod = "manual"
+vim.opt.title = true
+vim.opt.titlelen = 0 -- do not shorten title

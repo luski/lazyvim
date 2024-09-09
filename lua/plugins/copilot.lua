@@ -2,9 +2,7 @@ return {
   -- disable copilot-cmp
   { "zbirenbaum/copilot-cmp", enabled = false },
   { "AndreM222/copilot-lualine" },
-  {
-    "nvim-lualine/lualine.nvim",
-  },
+  { "nvim-lualine/lualine.nvim" },
   {
     "zbirenbaum/copilot.lua",
     event = "VeryLazy",
@@ -17,8 +15,12 @@ return {
           auto_refresh = true,
         },
         suggestion = {
+          accept = false,
           enabled = true,
           auto_trigger = true,
+          keymap = {
+            -- accept = "<M-Tab>",
+          },
         },
         filetypes = {
           javascript = true,

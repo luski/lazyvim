@@ -5,6 +5,9 @@
 -- Telescope import
 vim.keymap.set("n", "<leader>ci", "<cmd>Telescope import<cr>", { desc = "Telescope [i]mport" })
 
+-- Split screen vertically
+vim.keymap.set("n", "<leader>\\", "<C-W>v", { desc = "Split Window Right", remap = true })
+
 -- Package Info:
 -- Show dependency versions
 vim.keymap.set(
@@ -61,3 +64,14 @@ vim.keymap.set(
   require("package-info").change_version,
   { silent = true, noremap = true, desc = "Install a different dependency version" }
 )
+
+-- Custom copilot accepting keymap
+vim.keymap.set("i", "<CR>", function()
+  if require("copilot.suggestion").is_visible() then
+    require("copilot.suggestion").accept()
+  else
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true), "n", false)
+  end
+end, {
+  silent = true,
+})
