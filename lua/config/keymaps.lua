@@ -66,12 +66,18 @@ vim.keymap.set(
 )
 
 -- Custom copilot accepting keymap
-vim.keymap.set("i", "<CR>", function()
+vim.keymap.set("i", "<Tab>", function()
   if require("copilot.suggestion").is_visible() then
     require("copilot.suggestion").accept()
   else
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true), "n", false)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
   end
 end, {
   silent = true,
 })
+
+-- Mapowanie w trybie normalnym
+vim.keymap.set("n", "<C-A-c>", ":Lazy reload copilot.lua<CR>", { noremap = true, silent = true })
+
+-- Mapowanie w trybie insert
+vim.keymap.set("i", "<C-A-c>", "<Esc>:Lazy reload copilot.lua<CR>", { noremap = true, silent = true })
