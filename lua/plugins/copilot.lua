@@ -10,7 +10,10 @@ return {
     build = ":Copilot auth",
     event = "InsertEnter",
     config = function()
-      require("copilot").setup({ suggestion = { auto_trigger = true, keymap = { accept = false } } })
+      require("copilot").setup({
+        filetypes = { yaml = true, sh = true },
+        suggestion = { auto_trigger = true, keymap = { accept = false } },
+      })
       vim.keymap.set("i", "<Tab>", function()
         if require("copilot.suggestion").is_visible() then
           require("copilot.suggestion").accept()
