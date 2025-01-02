@@ -3,9 +3,14 @@ return {
   opts = {
     mappings = {
       go_in_plus = "<CR>",
+      go_in = "<C-l>",
+      go_out = "<C-h>",
     },
     options = {
       use_as_default_explorer = true,
+    },
+    windows = {
+      width_preview = 100,
     },
   },
   keys = {
